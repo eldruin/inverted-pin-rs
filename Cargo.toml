@@ -10,7 +10,7 @@ keywords = ["io", "gpio", "inverted", "pin", "hal"]
 categories = ["embedded", "hardware-support", "no-std"]
 homepage = "https://github.com/eldruin/inverted-pin-rs"
 documentation = "https://docs.rs/inverted-pin"
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 embedded-hal = { version = "0.2.7", features=["unproven"] }
