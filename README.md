@@ -2,7 +2,7 @@
 
 [![crates.io](https://img.shields.io/crates/v/inverted-pin.svg)](https://crates.io/crates/inverted-pin)
 [![Docs](https://docs.rs/inverted-pin/badge.svg)](https://docs.rs/inverted-pin)
-![MSRV](https://img.shields.io/badge/rustc-1.35+-blue.svg)
+![MSRV](https://img.shields.io/badge/rustc-1.60+-blue.svg)
 [![Build Status](https://github.com/eldruin/inverted-pin-rs/workflows/Build/badge.svg)](https://github.com/eldruin/inverted-pin-rs/actions?query=workflow%3ABuild)
 [![Coverage Status](https://coveralls.io/repos/github/eldruin/inverted-pin-rs/badge.svg?branch=master)](https://coveralls.io/github/eldruin/inverted-pin-rs?branch=master)
 
