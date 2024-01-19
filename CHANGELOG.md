@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [1.0.0] - 2024-01-19
+
 ### Changed
 - Updated `embedded-hal` to 1.0.0
 - Raised MSRV to 1.60.0
@@ -23,6 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 This is the initial release to crates.io.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/eldruin/inverted-pin-rs/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/eldruin/inverted-pin-rs/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/eldruin/inverted-pin-rs/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/eldruin/inverted-pin-rs/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/eldruin/inverted-pin-rs/releases/tag/v0.1.0
