@@ -1,6 +1,6 @@
-use embedded_hal::digital::v2::OutputPin;
+use embedded_hal::digital::OutputPin;
 use inverted_pin::InvertedPin;
-use linux_embedded_hal::Pin;
+use linux_embedded_hal::SysfsPin;
 
 struct Driver<P> {
     output: P,
@@ -26,7 +26,7 @@ where
 
 fn main() {
     // The same driver can operate with either a normal or an inverted pin.
-    let real_pin = Pin::new(25);
+    let real_pin = SysfsPin::new(25);
     let mut driver_with_real_pin = Driver::new(real_pin);
     driver_with_real_pin.do_something().unwrap();
     let real_pin = driver_with_real_pin.destroy();

@@ -16,11 +16,11 @@
 //! ### Output `InvertedPin` interaction
 //!
 //! ```no_run
-//! # use embedded_hal::digital::v2::OutputPin;
-//! use linux_embedded_hal::Pin;
+//! # use embedded_hal::digital::OutputPin;
+//! use linux_embedded_hal::SysfsPin;
 //! use inverted_pin::InvertedPin;
 //!
-//! let pin = Pin::new(25);
+//! let pin = SysfsPin::new(25);
 //! let mut inverted_pin = InvertedPin::new(pin);
 //!
 //! // This calls `pin.set_low()`
@@ -30,11 +30,11 @@
 //! ### Input `InvertedPin` interaction
 //!
 //! ```no_run
-//! # use embedded_hal::digital::v2::InputPin;
-//! use linux_embedded_hal::Pin;
+//! # use embedded_hal::digital::InputPin;
+//! use linux_embedded_hal::SysfsPin;
 //! use inverted_pin::InvertedPin;
 //!
-//! let pin = Pin::new(25);
+//! let pin = SysfsPin::new(25);
 //! let mut inverted_pin = InvertedPin::new(pin);
 //!
 //! // This returns the result of calling `pin.is_low()`

@@ -23,9 +23,9 @@ just like any other `OutputPin` or `InputPin` and serves as a drop-in replacemen
 This example demonstrates how the same driver can operate with either a normal or an inverted output pin.
 
 ```rust
-use embedded_hal::digital::v2::OutputPin;
+use embedded_hal::digital::OutputPin;
 use inverted_pin::InvertedPin;
-use linux_embedded_hal::Pin;
+use linux_embedded_hal::SysfsPin;
 
 struct Driver<P> {
     output: P,
@@ -51,7 +51,7 @@ where
 
 fn main() {
     // The same driver can operate with either a normal or an inverted pin.
-    let real_pin = Pin::new(25);
+    let real_pin = SysfsPin::new(25);
     let mut driver_with_real_pin = Driver::new(real_pin);
     driver_with_real_pin.do_something().unwrap();
     let real_pin = driver_with_real_pin.destroy();
@@ -66,11 +66,6 @@ fn main() {
 
 For questions, issues, feature requests, and other changes, please file an
 [issue in the github project](https://github.com/eldruin/inverted-pin-rs/issues).
-
-## Minimum Supported Rust Version (MSRV)
-
-This crate is guaranteed to compile on stable Rust 1.35 and up. It *might*
-compile with older versions but that may change in any new patch release.
 
 ## License
 

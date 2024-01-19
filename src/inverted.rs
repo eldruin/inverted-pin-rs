@@ -1,4 +1,4 @@
-use embedded_hal::digital::v2::{InputPin, OutputPin, StatefulOutputPin, ToggleableOutputPin};
+use embedded_hal::digital::{Error, ErrorType, InputPin, OutputPin, StatefulOutputPin};
 
 /// Inverted input/output pin
 ///
@@ -24,12 +24,19 @@ impl<P> InvertedPin<P> {
     }
 }
 
+impl<P, E> ErrorType for InvertedPin<P>
+where
+    P: ErrorType<Error = E>,
+    E: Error,
+{
+    type Error = E;
+}
+
 impl<P, E> OutputPin for InvertedPin<P>
 where
     P: OutputPin<Error = E>,
+    E: Error,
 {
-    type Error = E;
-
     fn set_high(&mut self) -> Result<(), Self::Error> {
         self.pin.set_low()
     }
@@ -42,38 +49,27 @@ where
 impl<P, E> InputPin for InvertedPin<P>
 where
     P: InputPin<Error = E>,
+    E: Error,
 {
-    type Error = E;
-
-    fn is_high(&self) -> Result<bool, Self::Error> {
+    fn is_high(&mut self) -> Result<bool, Self::Error> {
         self.pin.is_low()
     }
 
-    fn is_low(&self) -> Result<bool, Self::Error> {
+    fn is_low(&mut self) -> Result<bool, Self::Error> {
         self.pin.is_high()
-    }
-}
-
-impl<P, E> ToggleableOutputPin for InvertedPin<P>
-where
-    P: ToggleableOutputPin<Error = E>,
-{
-    type Error = E;
-
-    fn toggle(&mut self) -> Result<(), Self::Error> {
-        self.pin.toggle()
     }
 }
 
 impl<P, E> StatefulOutputPin for InvertedPin<P>
 where
     P: StatefulOutputPin<Error = E>,
+    E: Error,
 {
-    fn is_set_high(&self) -> Result<bool, Self::Error> {
+    fn is_set_high(&mut self) -> Result<bool, Self::Error> {
         self.pin.is_set_low()
     }
 
-    fn is_set_low(&self) -> Result<bool, Self::Error> {
+    fn is_set_low(&mut self) -> Result<bool, Self::Error> {
         self.pin.is_set_high()
     }
 }
